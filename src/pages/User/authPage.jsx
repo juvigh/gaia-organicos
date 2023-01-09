@@ -26,7 +26,9 @@ function AuthUser() {
       });
 
     if (res.data.userAuth.id) {
-      window.location.assign("http://127.0.0.1:5173/products");
+      setTimeout(() => {
+        window.location.assign("http://127.0.0.1:5173/products");
+      }, 1000);
     }
   }
 
