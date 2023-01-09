@@ -4,7 +4,9 @@ function Cards(props) {
   return (
     <Container>
       <ImgCard>
-        <img src={props.img}></img>
+        <img
+          src={props.img === null ? "src/assets/svg/gaia_logo.svg" : props.img}
+        ></img>
       </ImgCard>
 
       <TextCard>
