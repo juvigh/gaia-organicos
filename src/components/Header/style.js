@@ -7,6 +7,7 @@ export const Container = styled.div`
   /* border: solid; */
   background: #ffe7a8;
   height: 10vh;
+  width: 100%;
 
   img {
     /* border: solid; */

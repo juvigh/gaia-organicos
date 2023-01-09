@@ -1,23 +1,35 @@
 import FormUser from "../../components/Forms/FormUser/FormUser";
 import Header from "../../components/Header/Header.jsx";
-
-import { Container } from "./style";
+import Alert from "../../components/Alert/Alert";
 
 import axios from "axios";
 
 import { useState } from "react";
 
+import { Container } from "./style";
+
 function RegisterUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [msg, setMsg] = useState("");
 
   async function createUser() {
-    await axios.post("http://localhost:5400/user", {
-      name,
-      email,
-      password,
-    });
+    const res = await axios
+      .post("http://localhost:5400/user", {
+        name,
+        email,
+        password,
+      })
+      .catch(function (error) {
+        if (error.response) {
+          setMsg(error.response.data.msg);
+        }
+      });
+
+    if (res.data.newUser.id) {
+      window.location.assign("http://127.0.0.1:5173/login");
+    }
   }
 
   return (
@@ -31,6 +43,7 @@ function RegisterUser() {
         password={setPassword}
         send={createUser}
       />
+      <Alert msg={msg}></Alert>
     </Container>
   );
 }
