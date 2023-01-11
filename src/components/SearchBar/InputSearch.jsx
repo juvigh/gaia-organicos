@@ -1,4 +1,3 @@
-import { AiOutlineSearch } from "react-icons/ai";
 import { Container } from "./style";
 
 function InputSearch(props) {
@@ -7,12 +6,8 @@ function InputSearch(props) {
       <input
         type="text"
         placeholder="Busque aqui seu produto..."
-        onChange={(e) => props.query(e.target.value)}
-        value={props.value}
+        onChange={(e) => props.inputHandler(e.target.value)}
       />
-      <button onClick={props.send}>
-        <AiOutlineSearch size={25} color={"#FFFFF"} />
-      </button>
     </Container>
   );
 }
