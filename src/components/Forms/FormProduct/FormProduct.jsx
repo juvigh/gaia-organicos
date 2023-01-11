@@ -12,41 +12,55 @@ function FormProduct(props) {
       </p>
 
       <form>
-        <label htmlFor="imgProduct"> Informe um imagem </label>
+        <label htmlFor="imgProduct"> Informe o caminho da imagem </label>
         <input
           id="imgProduct"
-          type="file"
-          onChange={(e) => props.image(e.target.files[0])}
+          type="text"
+          onChange={(e) => props.image(e.target.value)}
+          placeholder={
+            props.valueImg === null || props.titleForm === "Cadastro"
+              ? "Adicione o link da imagem..."
+              : props.valueImg
+          }
         ></input>
         <label htmlFor="titleProduct"> Informe um titulo </label>
         <input
           id="titleProduct"
           type="text"
-          placeholder="Digite um titulo..."
           onChange={(e) => props.title(e.target.value)}
+          placeholder={
+            props.valueTitle === null || props.titleForm === "Cadastro"
+              ? "Digite um título..."
+              : props.valueTitle
+          }
         ></input>
         <label htmlFor="descripitonProduct"> Informe sua descrição </label>
         <textarea
           id="descriptionProduct"
           type="text"
-          placeholder="Digite uma descrição"
           onChange={(e) => props.description(e.target.value)}
+          placeholder={
+            props.valueDescription === null || props.titleForm === "Cadastro"
+              ? "Digite uma descrição..."
+              : props.valueDescription
+          }
         ></textarea>
         <label htmlFor="valueProduct"> Informe um valor </label>
         <input
           id="valueProduct"
           type="number"
           min="0"
-          placeholder="Digite um valor..."
           onChange={(e) => props.value(e.target.value)}
+          placeholder={
+            props.valueProduct === null || props.titleForm === "Cadastro"
+              ? "Digite um valor..."
+              : props.valueProduct
+          }
         ></input>
       </form>
       <button onClick={props.send}> Enviar </button>
     </Container>
   );
 }
-
-// meu placeholder ou value inicial serao info atual do produto selecionado
-// farei isso se der tempo
 
 export default FormProduct;
