@@ -4,6 +4,8 @@ export const Container = styled.div`
   /* border: solid; */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Main = styled.div`
@@ -12,6 +14,7 @@ export const Main = styled.div`
   height: 70vh;
   margin: 60px auto;
   /* border: solid; */
+  gap: 25px;
   padding: 10px;
   align-items: center;
   justify-content: space-around;
@@ -20,7 +23,7 @@ export const Main = styled.div`
 export const Img = styled.div`
   /* border: solid; */
   width: 60%;
-  height: 50vh;
+  height: 60vh;
 
   img {
     width: 100%;
@@ -30,7 +33,7 @@ export const Img = styled.div`
 export const Text = styled.div`
   /* border: solid; */
   width: 50%;
-  height: 50vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,13 +47,18 @@ export const Text = styled.div`
 
   p {
     /* border: solid; */
-    width: 90%;
+    width: 100%;
+  }
+
+  span {
+    color: #23663e;
+    font-size: 20px;
   }
 `;
 export const Buttons = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
 `;
 export const Button = styled.button`
   margin-bottom: 8px;

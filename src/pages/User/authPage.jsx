@@ -25,12 +25,19 @@ function AuthUser() {
         }
       });
 
-    if (res.data.userAuth.id) {
+    const userAuth = res.data.userAuth.id;
+    if (userAuth) {
+      localStorage.setItem("user", JSON.stringify(userAuth));
       setTimeout(() => {
-        window.location.assign("http://127.0.0.1:5173/products");
+        window.location.assign("http://127.0.0.1:5173/");
       }, 1000);
     }
   }
+
+  // vou pegar esse id e verificar se existe ele 
+  // caso exista, as configuraçÕes do header irao mudar
+  // o botao de cadastro vai ficar none e o botao de entrar
+  // vira botao "sair"
 
   return (
     <Container>
