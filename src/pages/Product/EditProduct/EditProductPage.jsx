@@ -10,6 +10,7 @@ import { Container } from "../style";
 function EditProduct() {
   const { id } = useParams();
   const [user, setUser] = useState([]);
+  const [product, setProduct] = useState([]);
   const userStorage = localStorage.getItem("user");
   const userId = JSON.parse(userStorage);
 
@@ -25,14 +26,23 @@ function EditProduct() {
       600;
   }
 
+  async function getAnProduct() {
+    const res = await axios.get(`http://localhost:5400/product/${id}`);
+    setProduct(res.data.product[0]);
+  }
   useEffect(() => {
     getAnUser();
+    getAnProduct();
   }, [id]);
 
   return (
     <Container>
       <Header />
       <FormProduct titleForm="Edição" />
+        valueImg={product.img}
+        valueTitle={product.title}
+        valueDescription={product.description}
+        valueProduct={product.value}
     </Container>
   );
 }
