@@ -19,7 +19,7 @@ function Header() {
   async function logoutUser() {
     localStorage.removeItem("user");
     setTimeout(() => {
-      window.location.assign(`http://127.0.0.1:5173/register`);
+      window.location.assign(`http://127.0.0.1:5173/login`);
     }, 1000);
   }
 
