@@ -4,7 +4,7 @@ export const Container = styled.form`
   display: flex;
   align-items: center;
   padding: 5px;
-  width: 50vw;
+  max-width: 100vw;
   justify-content: center;
   /* justify-content: space-around; */
   margin-top: 2rem;

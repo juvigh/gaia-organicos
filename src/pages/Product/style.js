@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  height: 100vh;
 `;
 
 export const Main = styled.div`
@@ -12,9 +13,8 @@ export const Main = styled.div`
   flex-direction: column;
   max-width: 80%;
   justify-content: center;
-  margin: 30px auto;
+  margin: 30px auto 200px auto;
   align-items: center;
-  /* border: solid; */
 
   ul {
     display: flex;
@@ -23,7 +23,7 @@ export const Main = styled.div`
     justify-content: center;
     /* border: solid; */
     margin-top: 20px;
-    gap: 5px;
+    gap: 15px;
   }
 
   li {

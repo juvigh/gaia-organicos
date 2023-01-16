@@ -10,6 +10,10 @@ export const Container = styled.div`
   align-items: center;
   padding: 10px;
 
+  @media screen and (max-width: 600px) {
+    width: 100vw;
+  }
+
   p {
     font-size: 20px;
     color: #23663e;
@@ -17,6 +21,7 @@ export const Container = styled.div`
     padding: 5px;
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
   }
 
   span {

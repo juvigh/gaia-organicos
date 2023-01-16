@@ -18,6 +18,12 @@ export const Main = styled.div`
   padding: 10px;
   align-items: center;
   justify-content: space-around;
+
+  @media screen and (max-width: 600px) {
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+  }
 `;
 
 export const Img = styled.div`
@@ -29,6 +35,11 @@ export const Img = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media screen and (max-width: 600px) {
+    width: 80%;
+    height: 40vh;
+  }
 `;
 export const Text = styled.div`
   /* border: solid; */
@@ -38,6 +49,11 @@ export const Text = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+
+  @media screen and (max-width: 600px) {
+    width: 80%;
+    height: 50vh;
+  }
 
   h1 {
     font-weight: bold;

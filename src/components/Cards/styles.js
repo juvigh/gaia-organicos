@@ -4,8 +4,8 @@ export const Container = styled.div`
   /* border: solid; */
   display: flex;
   flex-direction: column;
-  width: 17vw;
-  height: 37vh;
+  width: 20vw;
+  height: 39vh;
   justify-content: space-between;
   align-items: center;
   margin: 2rem;
@@ -18,6 +18,21 @@ export const Container = styled.div`
     border: 0.3px solid #23663e;
     transform: scale(1.01, 1.01);
   }
+
+  @media screen and (max-width: 600px) {
+    width: 60vw;
+    height: 35vh;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    width: 25vw;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 15vw;
+    height: 30vh;
+  }
+  
 `;
 
 export const ImgCard = styled.div`
@@ -58,4 +73,5 @@ export const TextCard = styled.div`
 
   span {
     color: #23663e;
-  }`
+  }
+`;

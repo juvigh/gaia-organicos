@@ -9,6 +9,10 @@ export const Container = styled.div`
   height: 60vh;
   align-items: center;
   padding: 10px;
+  
+  @media screen and (max-width: 600px) {
+    width: 100vw;
+  }
 
   p {
     font-size: 20px;
