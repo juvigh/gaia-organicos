@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Button, Container, Menu } from "./style";
+import { Button, ButtonsMob, ChangeMob, Container, Menu, MenuMob } from "./style";
+import { FiMenu } from "react-icons/fi";
+import { IoClose } from "react-icons/io5";
 
 function Header() {
   const logo = "/src/assets/svg/gaia_logo.svg";
 
+  const [menuMobile, setMenuMobile] = useState(false);
   const [user, setUser] = useState([]);
 
   const userStorage = localStorage.getItem("user");
@@ -30,45 +33,96 @@ function Header() {
   }, []);
 
   return (
-    <Container>
-      <Link to={"/"}>
-        <img src={logo} alt="logotipo" />
-      </Link>
+    <>
+      {menuMobile ? (
+        <MenuMob activeMenu>
+          <IoClose
+            size={45}
+            color={"#23663e"}
+            onClick={() => setMenuMobile(false)}
+          />
+          <nav>
+            <Link to={"/register_product"}> Novo produto </Link>
+            <Link to={"/ "}> Produtos </Link>
 
-      <Menu>
-        <Link to={"/register_product"}> Novo produto </Link>
-        <Link to={"/ "}> Produtos </Link>
+            {user ? (
+              <ButtonsMob href={"/register"} registerOut>
+                {" "}
+                Cadastrar-se{" "}
+              </ButtonsMob>
+            ) : (
+              <Link to={"/register"}>
+                <ButtonsMob> Cadastrar-se </ButtonsMob>
+              </Link>
+            )}
 
-        {user ? (
-          <Link to={"/register"}>
-            <Button registerOut> Cadastrar-se </Button>
-          </Link>
-        ) : (
-          <Link to={"/register"}>
-            <Button register> Cadastrar-se </Button>
-          </Link>
-        )}
+            {user ? (
+              <ButtonsMob href={"/login"} loginOut>
+                {" "}
+                Entrar{" "}
+              </ButtonsMob>
+            ) : (
+              <Link to={"/login"}>
+                <ButtonsMob> Entrar </ButtonsMob>
+              </Link>
+            )}
 
-        {user ? (
-          <Link to={"/login"}>
-            <Button loginOut> Entrar </Button>
+            {user ? (
+              <ButtonsMob onClick={logoutUser}>
+                {" "}
+                Sair{" "}
+              </ButtonsMob>
+            ) : (
+              <Button logoutOut> Sair </Button>
+            )}
+          </nav>
+        </MenuMob>
+      ) : (
+        <Container>
+          <Link to={"/"}>
+            <img src={logo} alt="logotipo" />
           </Link>
-        ) : (
-          <Link to={"/login"}>
-            <Button login> Entrar </Button>
-          </Link>
-        )}
 
-        {user ? (
-          <Button logout onClick={logoutUser}>
-            {" "}
-            Sair{" "}
-          </Button>
-        ) : (
-          <Button logoutOut> Sair </Button>
-        )}
-      </Menu>
-    </Container>
+          <Menu>
+            <Link to={"/register_product"}> Novo produto </Link>
+            <Link to={"/ "}> Produtos </Link>
+
+            {user ? (
+              <Link to={"/register"}>
+                <Button registerOut> Cadastrar-se </Button>
+              </Link>
+            ) : (
+              <Link to={"/register"}>
+                <Button register> Cadastrar-se </Button>
+              </Link>
+            )}
+
+            {user ? (
+              <Link to={"/login"}>
+                <Button loginOut> Entrar </Button>
+              </Link>
+            ) : (
+              <Link to={"/login"}>
+                <Button login> Entrar </Button>
+              </Link>
+            )}
+
+            {user ? (
+              <Button logout onClick={logoutUser}>
+                {" "}
+                Sair{" "}
+              </Button>
+            ) : (
+              <Button logoutOut> Sair </Button>
+            )}
+          </Menu>
+
+          <ChangeMob onClick={() => setMenuMobile(true)}>
+            <FiMenu size={35} color={"#23663e"}></FiMenu>
+          </ChangeMob>
+        </Container>
+      )}
+    </>
   );
 }
 
