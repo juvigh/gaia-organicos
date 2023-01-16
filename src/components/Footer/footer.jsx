@@ -2,6 +2,7 @@ import {
   AboutCompany,
   ContactCompany,
   Container,
+  Copyright,
   IntroductionCompany,
   SocialMedia,
 } from "./style";
@@ -52,7 +53,10 @@ function Footer() {
           </p>
         </ContactCompany>
       </AboutCompany>
-      Copyright &copy; Gaia Orgânicos. Todos os direitos reservados.
+      <Copyright>
+         Copyright &copy; Gaia Orgânicos.
+         Todos os direitos reservados.
+      </Copyright>
     </Container>
   );
 }
