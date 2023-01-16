@@ -19,7 +19,7 @@ function CreateProduct() {
   const userId = JSON.parse(userStorage);
 
   async function getAnUser() {
-    const res = await axios.get(`http://localhost:5400/user/${userId}`);
+    const res = await axios.get(`https://e-commerce-api-wh4h.onrender.com/user/${userId}`);
     setUser(res.data.user[0])
   }
 
@@ -31,7 +31,7 @@ function CreateProduct() {
 
   async function createProduct() {
     const res = await axios
-      .post("http://localhost:5400/product", {
+      .post("https://e-commerce-api-wh4h.onrender.com/product", {
         img,
         title,
         description,

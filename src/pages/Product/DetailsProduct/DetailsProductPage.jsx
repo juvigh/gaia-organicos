@@ -15,7 +15,7 @@ function DetailsProduct() {
   const [msg, setMsg] = useState("");
 
   async function getAnProduct() {
-    const res = await axios.get(`http://localhost:5400/product/${id}`);
+    const res = await axios.get(`https://e-commerce-api-wh4h.onrender.com/product/${id}`);
     setProduct(res.data.product[0]);
   }
 
@@ -23,7 +23,7 @@ function DetailsProduct() {
   const userId = JSON.parse(userStorage);
 
   async function getAnUser() {
-    const res = await axios.get(`http://localhost:5400/user/${userId}`);
+    const res = await axios.get(`https://e-commerce-api-wh4h.onrender.com/user/${userId}`);
     setUser(res.data.user[0]);
   }
 
@@ -35,7 +35,7 @@ function DetailsProduct() {
       }),
         1000;
     } else {
-      const res = await axios.delete(`http://localhost:5400/product/${id}`);
+      const res = await axios.delete(`https://e-commerce-api-wh4h.onrender.com/product/${id}`);
       setMsg(res.data.msg);
 
       if (res.data.msg) {

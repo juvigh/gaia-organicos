@@ -15,7 +15,7 @@ function AuthUser() {
 
   async function authUser() {
     const res = await axios
-      .post("http://localhost:5400/login", {
+      .post("https://e-commerce-api-wh4h.onrender.com/login", {
         email,
         password,
       })

@@ -24,7 +24,7 @@ function Products() {
   });
 
   async function getProducts() {
-    const res = await axios.get("http://localhost:5400/product");
+    const res = await axios.get("https://e-commerce-api-wh4h.onrender.com/product");
     setProducts(res.data.products);
   }
 

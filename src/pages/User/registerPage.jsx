@@ -16,7 +16,7 @@ function RegisterUser() {
 
   async function createUser() {
     const res = await axios
-      .post("http://localhost:5400/user", {
+      .post("https://e-commerce-api-wh4h.onrender.com/user", {
         name,
         email,
         password,
