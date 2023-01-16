@@ -6,7 +6,7 @@ import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 
 function Header() {
-  const logo = "/src/assets/svg/gaia_logo.svg";
+  const logo = "src/assets/svg/gaia_logo.svg";
 
   const [menuMobile, setMenuMobile] = useState(false);
   const [user, setUser] = useState([]);
