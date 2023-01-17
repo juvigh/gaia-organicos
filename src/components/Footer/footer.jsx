@@ -17,7 +17,7 @@ function Footer() {
     <Container>
       <AboutCompany>
         <IntroductionCompany>
-          <img src="src/assets/svg/gaia_logo_footer.svg"></img>
+          <img src="public/svg/gaia_logo_footer.svg"></img>
           <p>
             {" "}
             Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptas

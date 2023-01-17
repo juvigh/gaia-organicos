@@ -16,7 +16,7 @@
 ## 🍏 Resumo do Projeto
 <p> Consiste em um simples site ecommerce feito com React. A aplicação <strong>exibe</strong> produtos e é possível que o usuário consiga <strong>criar, editar, apagar</strong> e <strong>buscar</strong> esses produtos. É possivel, também, se registrar e logar no site. </p>
 
-<img src="src/assets/img/gaia-apresentacao.gif">
+<img src="public/img/gaia-apresentacao.gif">
 
 <br>
 
