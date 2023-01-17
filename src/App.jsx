@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Products from "./pages/Product/ProductPage";
-import DetailsProduct from "./pages/Product/DetailsProduct/DetailsProductPage";
-import CreateProduct from "./pages/Product/CreateProduct/CreateProduct";
-import EditProduct from "./pages/Product/EditProduct/EditProductPage";
-import AuthUser from "./pages/User/AuthPage";
-import RegisterUser from "./pages/User/RegisterPage";
+import Products from "/src/pages/Product/ProductPage.jsx";
+import DetailsProduct from "/src/pages/Product/DetailsProduct/DetailsProductPage.jsx";
+import CreateProduct from "/src/pages/Product/CreateProduct/CreateProduct.jsx";
+import EditProduct from "/src/pages/Product/EditProduct/EditProductPage.jsx";
+import AuthUser from "/src/pages/User/AuthPage.jsx";
+import RegisterUser from "/src/pages/User/RegisterPage.jsx";
 
 function App() {
   return (
