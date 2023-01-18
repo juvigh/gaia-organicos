@@ -4,7 +4,7 @@ import Alert from "../../../components/Alert/Alert";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { Button, Buttons, Container, Img, Main, Text } from "./style";
 
@@ -14,8 +14,12 @@ function DetailsProduct() {
   const [product, setProduct] = useState([]);
   const [msg, setMsg] = useState("");
 
+  const navigate = useNavigate();
+
   async function getAnProduct() {
-    const res = await axios.get(`https://e-commerce-api-wh4h.onrender.com/product/${id}`);
+    const res = await axios.get(
+      `https://e-commerce-api-wh4h.onrender.com/product/${id}`
+    );
     setProduct(res.data.product[0]);
   }
 
@@ -23,7 +27,9 @@ function DetailsProduct() {
   const userId = JSON.parse(userStorage);
 
   async function getAnUser() {
-    const res = await axios.get(`https://e-commerce-api-wh4h.onrender.com/user/${userId}`);
+    const res = await axios.get(
+      `https://e-commerce-api-wh4h.onrender.com/user/${userId}`
+    );
     setUser(res.data.user[0]);
   }
 
@@ -31,16 +37,17 @@ function DetailsProduct() {
     if (!user) {
       setMsg("Você precisa estar logado");
       setTimeout(() => {
-        window.location.assign("http://127.0.0.1:5173/login");
-      }),
-        1000;
+        navigate("/login");
+      }, 1000);
     } else {
-      const res = await axios.delete(`https://e-commerce-api-wh4h.onrender.com/product/${id}`);
+      const res = await axios.delete(
+        `https://e-commerce-api-wh4h.onrender.com/product/${id}`
+      );
       setMsg(res.data.msg);
 
       if (res.data.msg) {
         setTimeout(() => {
-          window.location.assign("http://127.0.0.1:5173/");
+          navigate("/");
         }, 1000);
       }
     }
