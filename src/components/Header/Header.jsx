@@ -1,12 +1,21 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button, ButtonsMob, ChangeMob, Container, Menu, MenuMob } from "./style";
+import { Link, useNavigate } from "react-router-dom";
+import {
+  Button,
+  ButtonsMob,
+  ChangeMob,
+  Container,
+  Menu,
+  MenuMob,
+} from "./style";
 import { FiMenu } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 
 function Header() {
-  const logo = "public/svg/gaia_logo.svg";
+  const logo = "/svg/gaia_logo.svg";
+
+  let navigate = useNavigate();
 
   const [menuMobile, setMenuMobile] = useState(false);
   const [user, setUser] = useState([]);
@@ -23,9 +32,6 @@ function Header() {
 
   async function logoutUser() {
     localStorage.removeItem("user");
-    setTimeout(() => {
-      window.location.assign(`http://127.0.0.1:5173/login`);
-    }, 1000);
   }
 
   useEffect(() => {
@@ -68,7 +74,14 @@ function Header() {
             )}
 
             {user ? (
-              <ButtonsMob onClick={logoutUser}>
+              <ButtonsMob
+                onClick={() => {
+                  logoutUser(),
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 1000);
+                }}
+              >
                 {" "}
                 Sair{" "}
               </ButtonsMob>
@@ -108,7 +121,15 @@ function Header() {
             )}
 
             {user ? (
-              <Button logout onClick={logoutUser}>
+              <Button
+                logout
+                onClick={() => {
+                  logoutUser(),
+                    setTimeout(() => {
+                      navigate("/login");
+                    }, 1000);
+                }}
+              >
                 {" "}
                 Sair{" "}
               </Button>

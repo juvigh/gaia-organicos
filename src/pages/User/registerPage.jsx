@@ -7,12 +7,16 @@ import axios from "axios";
 import { useState } from "react";
 
 import { Container } from "./style";
+import { useNavigate } from "react-router-dom";
 
 function RegisterUser() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [msg, setMsg] = useState("");
+  const [user, setUser] = useState(false);
+
+  const navigate = useNavigate();
 
   async function createUser() {
     const res = await axios
@@ -26,11 +30,9 @@ function RegisterUser() {
           setMsg(error.response.data.msg);
         }
       });
-
-    if (res.data.newUser.id) {
-      setTimeout(() => {
-        window.location.assign("http://127.0.0.1:5173/login");
-      }, 1000);
+    console.log(res.data.newUser.id);
+    if (res.data.newUser) {
+      setUser(true);
     }
   }
 
@@ -45,7 +47,14 @@ function RegisterUser() {
         password={setPassword}
         send={createUser}
       />
-      <Alert msg={msg}></Alert>
+
+      {user ? (
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000)
+      ) : (
+        <Alert msg={msg}></Alert>
+      )}
     </Container>
   );
 }

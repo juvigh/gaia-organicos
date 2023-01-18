@@ -6,30 +6,34 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Container } from "./style";
 import Alert from "../../../components/Alert/Alert";
+import { useNavigate } from "react-router-dom";
 
 function CreateProduct() {
-  const [user, setUser] = useState([]);
   const [img, setImg] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [value, setValue] = useState(0);
   const [msg, setMsg] = useState("");
 
+  const navigate = useNavigate();
+
   const userStorage = localStorage.getItem("user");
   const userId = JSON.parse(userStorage);
 
   async function getAnUser() {
-    const res = await axios.get(`https://e-commerce-api-wh4h.onrender.com/user/${userId}`);
-    setUser(res.data.user[0])
+    const res = await axios.get(
+      `https://e-commerce-api-wh4h.onrender.com/user/${userId}`
+    );
+    const userAuth = res.data.user[0];
+    if (!userAuth) {
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+    }
   }
 
-  if (!user) {
-    setTimeout(() => {
-      window.location.assign("http://127.0.0.1:5173/login");
-    }), 600;
-  }
-
-  async function createProduct() {
+  async function createProduct(e) {
+    e.preventDefault();
     const res = await axios
       .post("https://e-commerce-api-wh4h.onrender.com/product", {
         img,
@@ -43,17 +47,18 @@ function CreateProduct() {
         }
       });
 
-    if (res.data) {
+    const createdProduct = res.data.newProduct;
+    if (createdProduct) {
       setMsg(res.data.msg);
       setTimeout(() => {
-        window.location.assign("http://127.0.0.1:5173/");
+        navigate("/");
       }, 1000);
     }
   }
 
   useEffect(() => {
-    getAnUser()
-  }, [])
+    getAnUser();
+  }, []);
   // testar setTimeout com o window assign
   // se nao existir imagem, colocar  a logo da gaia
 
