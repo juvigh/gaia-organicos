@@ -1,10 +1,11 @@
-# <div align="center" ><img src="src/assets/svg/gaia_logo_2.svg" height="200" width="700"></div>
+# <div align="center" ><img src="public/svg/gaia_logo_footer.svg" height="200" width="700"></div>
 
 <p align="center">
  <a href="#-resumo-do-projeto"> Resumo </a> •
  <a href="#%EF%B8%8F-tecnologias-utilizadas">Tecnologias</a> • 
  <a href="#%EF%B8%8F-pré-requisitos"> Pré-requesitos</a> • 
- <a href="#-rodar-o-projeto"> Rodar projeto</a>
+ <a href="#-rodar-o-projeto-localmente"> Rodar projeto</a> • 
+ <a href="#-status-do-projeto"> Status </a>
 </p>
 
 <br>
@@ -41,7 +42,7 @@
 
 <br>
 
-## 🚀 Rodar o projeto
+## 🚀 Rodar o projeto (localmente)
 
 ```
 $ git clone https://github.com/juvigh/gaia-organicos.git
@@ -49,3 +50,9 @@ $ cd gaia-organicos
 $ npm install
 $ npm start
 ```
+<br>
+
+## 🔓 Status do Projeto
+<p> Online ✅ </p>
+<p> Link do projeto: <a href="https://gaia-organicos.web.app"> Clique aqui </a> </p> 
+
